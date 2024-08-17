@@ -2,6 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import AuthContext from "../../contexts/authContext";
 import apiRequester from "../../utils/apiRequester";
+import CommentsSection from "../../components/comment-section/CommentSection";
 import "./ProductDetailsPage.css";
 
 const ProductDetailsPage = () => {
@@ -102,6 +103,7 @@ const ProductDetailsPage = () => {
               </button>
             </div>
           )}
+          <CommentsSection productId={productId} />
         </>
       ) : (
         <div>No product found</div>
