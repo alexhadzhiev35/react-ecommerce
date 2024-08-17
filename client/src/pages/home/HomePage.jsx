@@ -1,5 +1,7 @@
 import "./HomePage.css";
 
+import { Link } from "react-router-dom";
+
 const HomePage = () => {
   return (
     <div className="hero">
@@ -8,7 +10,9 @@ const HomePage = () => {
         <p>with the best price on the market</p>
       </div>
 
-      <button>Shop now</button>
+      <Link to="/products" className="shopBtn">
+        Shop now
+      </Link>
     </div>
   );
 };
