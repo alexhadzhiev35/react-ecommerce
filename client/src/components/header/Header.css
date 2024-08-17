@@ -30,8 +30,20 @@ nav {
   list-style: none;
   gap: 24px;
   align-items: center;
+
+  font-weight: 600;
+}
+
+.links li,
+.actions li {
+  transition: ease-in 100ms;
+}
+
+.links li:hover,
+.actions li:hover {
+  color: #28a745;
 }
 
 .active {
-  text-decoration: underline;
+  color: #28a745;
 }

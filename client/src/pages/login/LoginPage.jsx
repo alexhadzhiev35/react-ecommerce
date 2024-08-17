@@ -3,7 +3,7 @@ import "./LoginPage.css";
 import { useContext, useState } from "react";
 import apiRequester from "../../utils/apiRequester";
 import AuthContext from "../../contexts/authContext";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
@@ -47,6 +47,7 @@ function LoginPage() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
+            placeholder="something@abv.bg"
           />
         </div>
         <div>
@@ -57,9 +58,16 @@ function LoginPage() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
+            placeholder="******"
           />
         </div>
         <button type="submit">Login</button>
+        <p>
+          If you do not have registration you can do it{" "}
+          <Link className="link" to="/register">
+            here
+          </Link>
+        </p>
       </form>
     </div>
   );

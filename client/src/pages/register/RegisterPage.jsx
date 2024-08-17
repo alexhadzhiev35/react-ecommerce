@@ -6,6 +6,8 @@ import apiRequester from "../../utils/apiRequester";
 import AuthContext from "../../contexts/authContext";
 import { useNavigate } from "react-router-dom";
 
+import { Link } from "react-router-dom";
+
 function RegisterPage() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -90,6 +92,12 @@ function RegisterPage() {
           />
         </div>
         <button type="submit">Register</button>
+        <p>
+          If you do not have registration you can do it{" "}
+          <Link className="linkG" to="/login">
+            here
+          </Link>
+        </p>
       </form>
     </div>
   );
