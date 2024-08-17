@@ -6,8 +6,12 @@ import {
   ArrowTrendingUpIcon,
   ShoppingBagIcon,
 } from "@heroicons/react/24/solid";
+import { useContext } from "react";
+import AuthContext from "../../contexts/authContext";
 
 const Header = () => {
+  const { auth } = useContext(AuthContext);
+
   return (
     <nav>
       <div className="logo">
@@ -61,15 +65,22 @@ const Header = () => {
       </ul>
 
       <ul className="actions">
-        <li>
-          <Link to="/login"> Login</Link>
-        </li>
-        <li>
-          <Link to="/register"> Register</Link>
-        </li>
-        <li>
-          <Link to="/logout"> Logout</Link>
-        </li>
+        {!auth && (
+          <>
+            <li>
+              <Link to="/login"> Login</Link>
+            </li>
+            <li>
+              <Link to="/register"> Register</Link>
+            </li>
+          </>
+        )}
+
+        {auth && (
+          <li>
+            <Link to="/logout"> Logout</Link>
+          </li>
+        )}
       </ul>
     </nav>
   );

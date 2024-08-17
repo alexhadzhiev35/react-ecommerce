@@ -1,15 +1,38 @@
 import "./LoginPage.css";
 
-import { useState } from "react";
+import { useContext, useState } from "react";
+import apiRequester from "../../utils/apiRequester";
+import AuthContext from "../../contexts/authContext";
+import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { login } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log("Email:", email);
-    console.log("Password:", password);
+
+    const credentials = { email, password };
+
+    loginUser(credentials);
+    // console.log("Email:", email);
+    // console.log("Password:", password);
+  };
+
+  const loginUser = async (userCredentials) => {
+    try {
+      const result = await apiRequester(
+        "http://localhost:3030/users/login",
+        "POST",
+        userCredentials
+      );
+      login(result);
+      navigate("/");
+    } catch (error) {
+      console.error("Login failed:", error);
+    }
   };
 
   return (

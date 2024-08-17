@@ -1,12 +1,18 @@
 import "./RegisterPage.css";
 
-import { useState } from "react";
+import { useContext, useState } from "react";
+
+import apiRequester from "../../utils/apiRequester";
+import AuthContext from "../../contexts/authContext";
+import { useNavigate } from "react-router-dom";
 
 function RegisterPage() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const { register } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -17,6 +23,26 @@ function RegisterPage() {
     console.log("Username:", username);
     console.log("Email:", email);
     console.log("Password:", password);
+
+    const credentials = { username, email, password };
+
+    registerUser(credentials);
+  };
+
+  const registerUser = async (userCredentials) => {
+    try {
+      const result = await apiRequester(
+        "http://localhost:3030/users/register",
+        "POST",
+        userCredentials
+      );
+      register(result);
+      navigate("/");
+
+      // console.log(result);
+    } catch (error) {
+      console.error("Login failed:", error);
+    }
   };
 
   return (
