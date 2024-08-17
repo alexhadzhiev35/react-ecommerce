@@ -31,3 +31,7 @@ nav {
   gap: 24px;
   align-items: center;
 }
+
+.active {
+  text-decoration: underline;
+}

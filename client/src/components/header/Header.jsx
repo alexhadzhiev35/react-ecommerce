@@ -1,5 +1,7 @@
 import "./Header.css";
 
+import { Link, NavLink } from "react-router-dom";
+
 import {
   ArrowTrendingUpIcon,
   ShoppingBagIcon,
@@ -15,34 +17,58 @@ const Header = () => {
 
       <ul className="links">
         <li>
-          <a href="#"> Home</a>
+          <NavLink
+            to="/"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            {" "}
+            Home
+          </NavLink>
         </li>
         <li>
-          <a href="#"> Products</a>
+          <NavLink
+            to="/products"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            {" "}
+            Products
+          </NavLink>
         </li>
         <li>
-          <a href="#"> About</a>
+          <NavLink
+            to="/about"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            {" "}
+            About
+          </NavLink>
         </li>
         <li>
-          <a href="#"> Contact Us</a>
+          <NavLink
+            to="/contact"
+            className={({ isActive }) => (isActive ? "active" : "")}
+          >
+            {" "}
+            Contact Us
+          </NavLink>
         </li>
         <li>
-          <a href="#">
+          <Link to="/">
             {" "}
             <ShoppingBagIcon className="icon" />
-          </a>
+          </Link>
         </li>
       </ul>
 
       <ul className="actions">
         <li>
-          <a href="#"> Login</a>
+          <Link to="/login"> Login</Link>
         </li>
         <li>
-          <a href="#"> Register</a>
+          <Link to="/register"> Register</Link>
         </li>
         <li>
-          <a href="#"> Logout</a>
+          <Link to="/logout"> Logout</Link>
         </li>
       </ul>
     </nav>
