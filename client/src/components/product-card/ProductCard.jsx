@@ -1,9 +1,15 @@
 /* eslint-disable react/prop-types */
 import "./ProductCard.css";
-
 import { StarIcon } from "@heroicons/react/24/solid";
+import { useNavigate } from "react-router-dom";
 
 const ProductCard = (props) => {
+  const navigate = useNavigate();
+
+  const handleDetailsClick = () => {
+    navigate(`/products/${props._id}`);
+  };
+
   return (
     <div className="card">
       <img className="image" src={props.imageUrl} alt="Product Image" />
@@ -16,7 +22,9 @@ const ProductCard = (props) => {
         </span>
       </div>
 
-      <button className="btn">Details</button>
+      <button className="btn" onClick={handleDetailsClick}>
+        Details
+      </button>
     </div>
   );
 };

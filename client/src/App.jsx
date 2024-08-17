@@ -11,9 +11,11 @@ import ContactPage from "./pages/contact/ContactPage";
 import LoginPage from "./pages/login/LoginPage";
 import RegisterPage from "./pages/register/RegisterPage";
 import ProtectedRoute from "./components/protected-route/ProtectedRoute";
+import ProductDetailsPage from "./pages/product-detail/ProductDetailsPage";
 
 import { AuthProvider } from "./contexts/authContext";
 import ProductAddPage from "./pages/product-add/ProductAddPage";
+import ProductEditPage from "./pages/product-edit/ProductEditPage";
 
 function App() {
   return (
@@ -25,6 +27,11 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/products" element={<ProductsPage />} />
             <Route
+              path="/products/:productId"
+              element={<ProductDetailsPage />}
+            />
+
+            <Route
               path="/product-add"
               element={
                 <ProtectedRoute>
@@ -32,6 +39,15 @@ function App() {
                 </ProtectedRoute>
               }
             />
+            <Route
+              path="/products/:productId/edit"
+              element={
+                <ProtectedRoute>
+                  <ProductEditPage />
+                </ProtectedRoute>
+              }
+            />
+
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
             {/* Add details page  */}
