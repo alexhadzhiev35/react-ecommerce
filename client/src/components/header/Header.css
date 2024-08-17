@@ -1,0 +1,33 @@
+.header {
+  /* background-color: red; */
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  background-color: #fff;
+}
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logoIcon {
+  height: 36px;
+  width: auto;
+}
+
+.icon {
+  height: 20px;
+  width: auto;
+  transform: translateY(2px);
+}
+
+.links,
+.actions {
+  display: flex;
+  list-style: none;
+  gap: 24px;
+  align-items: center;
+}
