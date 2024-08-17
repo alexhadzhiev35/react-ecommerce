@@ -1,5 +1,9 @@
+import { useContext } from "react";
 import ProductCard from "../../components/product-card/ProductCard";
 import "./ProductsPage.css";
+
+import { Link } from "react-router-dom";
+import AuthContext from "../../contexts/authContext";
 
 const products = [
   {
@@ -40,8 +44,16 @@ const products = [
 ];
 
 const ProductsPage = () => {
+  const { auth } = useContext(AuthContext);
+
   return (
     <>
+      {auth && (
+        <Link to="/product-add" className="addBtn ">
+          List new product
+        </Link>
+      )}
+
       <div className="productList">
         {products.map((product) => (
           <ProductCard key={product.name} {...product}></ProductCard>

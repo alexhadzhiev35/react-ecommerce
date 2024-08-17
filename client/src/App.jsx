@@ -13,6 +13,7 @@ import RegisterPage from "./pages/register/RegisterPage";
 import ProtectedRoute from "./components/protected-route/ProtectedRoute";
 
 import { AuthProvider } from "./contexts/authContext";
+import ProductAddPage from "./pages/product-add/ProductAddPage";
 
 function App() {
   return (
@@ -23,6 +24,14 @@ function App() {
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/products" element={<ProductsPage />} />
+            <Route
+              path="/product-add"
+              element={
+                <ProtectedRoute>
+                  <ProductAddPage />
+                </ProtectedRoute>
+              }
+            />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/contact" element={<ContactPage />} />
             {/* Add details page  */}
@@ -30,8 +39,7 @@ function App() {
               path="/login"
               element={
                 <ProtectedRoute reverse>
-                  {" "}
-                  <LoginPage />{" "}
+                  <LoginPage />
                 </ProtectedRoute>
               }
             />
@@ -39,8 +47,7 @@ function App() {
               path="/register"
               element={
                 <ProtectedRoute reverse>
-                  {" "}
-                  <RegisterPage />{" "}
+                  <RegisterPage />
                 </ProtectedRoute>
               }
             />
@@ -48,8 +55,7 @@ function App() {
               path="/logout"
               element={
                 <ProtectedRoute>
-                  {" "}
-                  <Logout />{" "}
+                  <Logout />
                 </ProtectedRoute>
               }
             />
