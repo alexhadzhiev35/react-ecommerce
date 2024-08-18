@@ -65,10 +65,12 @@
 
 .thank-you-message {
   text-align: center;
-  padding: 2rem;
+  padding: 32px;
   background-color: #f9f9f9;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 8px;
+
+  margin-bottom: 48px;
 }
 
 .contact-info {

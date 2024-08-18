@@ -71,7 +71,7 @@ const AboutPage = () => {
           </p>
         </section>
 
-        <section className="contact-info">
+        <section className="contact-info_about">
           <h2>Get in Touch</h2>
           <p>
             Have questions or need help finding the right product? Our customer
