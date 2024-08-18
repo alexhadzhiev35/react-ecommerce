@@ -1,12 +1,7 @@
-.google-map {
-  width: 600px;
-  height: 400px;
-}
-
 /* src/pages/about/AboutPage.css */
 .about-page {
   padding: 2rem;
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
   font-family: Arial, sans-serif;
 }

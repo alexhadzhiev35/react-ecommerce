@@ -1,7 +1,7 @@
 /* src/pages/contact/ContactPage.css */
 .contact-page {
   padding: 2rem;
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
   font-family: Arial, sans-serif;
 }
@@ -24,7 +24,11 @@
 }
 
 .contact-form div {
-  margin-bottom: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 12px;
 }
 
 .contact-form label {
@@ -36,7 +40,7 @@
 
 .contact-form input,
 .contact-form textarea {
-  width: 100%;
+  width: 70%;
   padding: 0.5rem;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -51,6 +55,8 @@
   border-radius: 4px;
   cursor: pointer;
   font-size: 1rem;
+
+  transition: ease-in 100ms;
 }
 
 .contact-form button:hover {
@@ -66,19 +72,31 @@
 }
 
 .contact-info {
-  margin-top: 3rem;
   padding: 1rem;
   background-color: #f9f9f9;
   border: 1px solid #ccc;
   border-radius: 5px;
+
+  width: 50%;
 }
 
 .contact-info h2 {
-  font-size: 2rem;
+  font-size: 28px;
   margin-bottom: 1rem;
   color: #007bff;
 }
 
 .contact-info p {
-  margin-bottom: 0.5rem;
+  margin-bottom: 16px;
+  font-size: 13px;
+}
+
+.down-section {
+  display: flex;
+  gap: 20px;
+}
+
+.google-map {
+  width: 600px;
+  height: 400px;
 }

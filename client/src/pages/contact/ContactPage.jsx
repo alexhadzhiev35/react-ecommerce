@@ -1,17 +1,12 @@
-// import { useState } from "react";
-
-// import {
-//   APIProvider,
-//   Map,
-//   AdvancedMarker,
-//   Pin,
-//   InfoWindow,
-// } from "@vis.gl/react-google-maps";
-// import "./ContactPage.css";
+import {
+  APIProvider,
+  Map,
+  AdvancedMarker,
+  Pin,
+  InfoWindow,
+} from "@vis.gl/react-google-maps";
 
 // const ContactPage = () => {
-//   const position = { lat: 42.6825024, lng: 23.3167872 };
-//   const [open, setOpen] = useState(false);
 
 //   return (
 //     <APIProvider apiKey={import.meta.env.VITE_API_KEY}>
@@ -43,6 +38,8 @@ import { useState } from "react";
 import "./ContactPage.css";
 
 const ContactPage = () => {
+  const position = { lat: 42.6825024, lng: 23.3167872 };
+  const [open, setOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -140,19 +137,45 @@ const ContactPage = () => {
         </form>
       )}
 
-      <div className="contact-info">
-        <h2>Our Contact Information</h2>
-        <p>If you prefer to reach us directly, you can contact us at:</p>
-        <p>
-          <strong>Email:</strong> support@trendytech.com
-        </p>
-        <p>
-          <strong>Phone:</strong> +1 (800) 123-4567
-        </p>
-        <p>
-          <strong>Address:</strong> 123 Tech Street, Innovation City, Techland
-        </p>
-        <p>Our support team is available Monday to Friday, 9 AM to 5 PM.</p>
+      <div className="down-section">
+        <div className="contact-info">
+          <h2>Our Contact Information</h2>
+          <p>If you prefer to reach us directly, you can contact us at:</p>
+          <p>
+            <strong>Email:</strong> support@trendytech.com
+          </p>
+          <p>
+            <strong>Phone:</strong> +1 (800) 123-4567
+          </p>
+          <p>
+            <strong>Address:</strong> 1 Bulgaria Boulevard, Sofia, Bulgaria
+          </p>
+          <p>Our support team is available Monday to Friday, 9 AM to 5 PM.</p>
+        </div>
+        <APIProvider apiKey={import.meta.env.VITE_API_KEY}>
+          <div className="google-map">
+            <Map
+              zoom={14}
+              center={position}
+              mapId={import.meta.env.VITE_MAP_ID}
+            ></Map>
+            <AdvancedMarker
+              position={position}
+              onClick={() => setOpen(true)}
+            ></AdvancedMarker>
+            {open && (
+              <InfoWindow
+                position={position}
+                onCloseClick={() => setOpen(false)}
+              >
+                <p>
+                  Here is our office and all the tech you need just one floor
+                  down
+                </p>
+              </InfoWindow>
+            )}
+          </div>
+        </APIProvider>
       </div>
     </div>
   );

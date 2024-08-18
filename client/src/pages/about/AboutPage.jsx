@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./AboutPage.css";
 
 const AboutPage = () => {
@@ -75,8 +76,8 @@ const AboutPage = () => {
           <p>
             Have questions or need help finding the right product? Our customer
             support team is here to assist you.{" "}
-            <a href="/contact">Contact us</a> today to learn more about how we
-            can help you stay ahead of the tech curve.
+            <Link to="/contact">Contact us</Link> today to learn more about how
+            we can help you stay ahead of the tech curve.
           </p>
         </section>
       </div>
