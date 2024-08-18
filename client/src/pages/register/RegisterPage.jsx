@@ -46,7 +46,8 @@ function RegisterPage() {
       // console.log(result);
     } catch (error) {
       console.error("Login failed:", error);
-      setError("Registration failed. Please try again.");
+      // setError("Registration failed. Please try again.");
+      setError("User with such email already exist.");
     }
   };
 
