@@ -8,17 +8,17 @@ import { Link, useNavigate } from "react-router-dom";
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
   const { login } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setError(null);
 
     const credentials = { email, password };
 
     loginUser(credentials);
-    // console.log("Email:", email);
-    // console.log("Password:", password);
   };
 
   const loginUser = async (userCredentials) => {
@@ -32,12 +32,14 @@ function LoginPage() {
       navigate("/");
     } catch (error) {
       console.error("Login failed:", error);
+      setError("Invalid email or password. Please try again.");
     }
   };
 
   return (
     <div className="login-form">
       <h2>Login</h2>
+
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="email">Email:</label>
@@ -61,6 +63,7 @@ function LoginPage() {
             placeholder="******"
           />
         </div>
+        {error && <p className="error-message">{error}</p>}
         <button type="submit">Login</button>
         <p>
           If you do not have registration you can do it{" "}

@@ -57,28 +57,33 @@ const CommentsSection = ({ productId }) => {
   };
 
   return (
-    <div className="comments-section">
-      <h3>Comments</h3>
-      {comments.map((comment) => (
-        <Comment
-          key={comment._id}
-          comment={comment}
-          onDelete={handleDeleteComment}
-          onUpdate={handleUpdateComment}
-        />
-      ))}
-
-      {auth && (
-        <div className="add-comment">
-          <textarea
-            value={newComment}
-            onChange={(e) => setNewComment(e.target.value)}
-            placeholder="Add a comment"
-          />
-          <button onClick={handleAddComment}>Post Comment</button>
+    <>
+      <h3 className="comments-heading">Comments</h3>
+      <div className="comments-section">
+        <div className="prev-comments">
+          {comments.map((comment) => (
+            <Comment
+              key={comment._id}
+              comment={comment}
+              onDelete={handleDeleteComment}
+              onUpdate={handleUpdateComment}
+            />
+          ))}
         </div>
-      )}
-    </div>
+
+        {auth && (
+          <div className="add-comment">
+            {/* <h4>Add comment</h4> */}
+            <textarea
+              value={newComment}
+              onChange={(e) => setNewComment(e.target.value)}
+              placeholder="Nice product! Love it"
+            />
+            <button onClick={handleAddComment}>Post Comment</button>
+          </div>
+        )}
+      </div>
+    </>
   );
 };
 

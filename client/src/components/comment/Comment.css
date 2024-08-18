@@ -1,0 +1,53 @@
+.comment {
+  display: flex;
+  gap: 20px;
+
+  align-items: center;
+
+  font-style: italic;
+}
+
+.comment p {
+  font-size: 14px;
+}
+
+.comment-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.comment-actions button,
+.comment-saveBtn {
+  padding: 3px 6px;
+  border: none;
+  border-radius: 4px;
+
+  color: #fff;
+  cursor: pointer;
+  transition: ease-in 100ms;
+}
+
+.comment-editBtn {
+  background-color: #338446;
+}
+.comment-editBtn:hover {
+  background-color: #2a6e3a;
+}
+
+.comment-saveBtn {
+  background-color: #007bff;
+}
+.comment-saveBtn:hover {
+  background-color: #0056b3;
+}
+
+.comment-deleteBtn {
+  background-color: rgb(178, 37, 37);
+}
+.comment-deleteBtn:hover {
+  background-color: rgb(157, 33, 33);
+}
+
+.comment-text {
+  width: 25%;
+}

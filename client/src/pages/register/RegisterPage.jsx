@@ -13,18 +13,20 @@ function RegisterPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [error, setError] = useState(null);
   const { register } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setError(null);
     if (password !== confirmPassword) {
-      alert("Passwords don't match!");
+      setError("Passwords don't match!");
       return;
     }
-    console.log("Username:", username);
-    console.log("Email:", email);
-    console.log("Password:", password);
+    // console.log("Username:", username);
+    // console.log("Email:", email);
+    // console.log("Password:", password);
 
     const credentials = { username, email, password };
 
@@ -44,6 +46,7 @@ function RegisterPage() {
       // console.log(result);
     } catch (error) {
       console.error("Login failed:", error);
+      setError("Registration failed. Please try again.");
     }
   };
 
@@ -91,6 +94,7 @@ function RegisterPage() {
             required
           />
         </div>
+        {error && <p className="error-message">{error}</p>}
         <button type="submit">Register</button>
         <p>
           If you do not have registration you can do it{" "}

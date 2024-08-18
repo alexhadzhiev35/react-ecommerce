@@ -44,21 +44,29 @@ const Comment = ({ comment, onDelete, onUpdate }) => {
       {isEditing ? (
         <>
           <textarea
+            className="comment-text"
             value={content}
             onChange={(e) => setContent(e.target.value)}
           />
-          <button onClick={handleEdit}>Save</button>
+          <button className="comment-saveBtn" onClick={handleEdit}>
+            Save
+          </button>
         </>
       ) : (
         <p>{content}</p>
       )}
 
       {auth && auth._id === comment._ownerId && (
-        <div>
-          <button onClick={() => setIsEditing(!isEditing)}>
+        <div className="comment-actions">
+          <button
+            className="comment-editBtn"
+            onClick={() => setIsEditing(!isEditing)}
+          >
             {isEditing ? "Cancel" : "Edit"}
           </button>
-          <button onClick={handleDelete}>Delete</button>
+          <button className="comment-deleteBtn" onClick={handleDelete}>
+            Delete
+          </button>
         </div>
       )}
     </div>

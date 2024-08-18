@@ -16,6 +16,7 @@ import ProductDetailsPage from "./pages/product-detail/ProductDetailsPage";
 import { AuthProvider } from "./contexts/authContext";
 import ProductAddPage from "./pages/product-add/ProductAddPage";
 import ProductEditPage from "./pages/product-edit/ProductEditPage";
+import NotFoundPage from "./pages/not-found/NotFoundPage";
 
 function App() {
   return (
@@ -75,6 +76,8 @@ function App() {
                 </ProtectedRoute>
               }
             />
+            <Route path="*" element={<NotFoundPage />} />
+            {/* <Route path="/products/*" element={<NotFoundPage />} /> */}
           </Routes>
           <Footer />
         </BrowserRouter>

@@ -21,6 +21,7 @@ const ProductDetailsPage = () => {
         );
         setProduct(data);
       } catch (err) {
+        navigate("/error");
         setError("Failed to fetch product details");
         console.error("Error fetching product details:", err);
       } finally {
@@ -63,46 +64,56 @@ const ProductDetailsPage = () => {
       {product ? (
         <>
           <h2>{product.name}</h2>
-          <img
-            src={product.imageUrl}
-            alt={product.name}
-            className="product-image"
-          />
-          <p>
-            <strong>Category:</strong> {product.category}
-          </p>
-          <p>
-            <strong>Memory:</strong> {product.memory}
-          </p>
-          <p>
-            <strong>Processor:</strong> {product.processor}
-          </p>
-          <p>
-            <strong>GPU:</strong> {product.gpu}
-          </p>
-          <p>
-            <strong>Description:</strong> {product.description}
-          </p>
-          <p>
-            <strong>Rating:</strong> {product.rating}
-          </p>
-          <p>
-            <strong>Condition:</strong> {product.condition}
-          </p>
-          <p>
-            <strong>Price:</strong> {product.price}
-          </p>
-
-          {auth && auth._id === product._ownerId && (
-            <div className="actions">
-              <button onClick={handleEdit} className="btn-edit">
-                Edit
-              </button>
-              <button onClick={handleDelete} className="btn-delete">
-                Delete
-              </button>
+          <div className="product-info">
+            <div className="left-part">
+              <img
+                src={product.imageUrl}
+                alt={product.name}
+                className="product-image"
+              />
             </div>
-          )}
+
+            <div className="right-part">
+              <p>
+                <strong>Description:</strong> {product.description}
+              </p>
+              <p>
+                <strong>Category:</strong> {product.category}
+              </p>
+              <p>
+                <strong>Memory:</strong> {product.memory}
+              </p>
+              <p>
+                <strong>Processor:</strong> {product.processor}
+              </p>
+              <p>
+                <strong>GPU:</strong> {product.gpu}
+              </p>
+
+              <p>
+                <strong>Condition:</strong> {product.condition}
+              </p>
+
+              <p>
+                <strong>Rating:</strong> {product.rating}
+              </p>
+              <p>
+                <strong>Price:</strong> {product.price}
+              </p>
+
+              {auth && auth._id === product._ownerId && (
+                <div className="actions">
+                  <button onClick={handleEdit} className="btn-edit">
+                    Edit
+                  </button>
+                  <button onClick={handleDelete} className="btn-delete">
+                    Delete
+                  </button>
+                </div>
+              )}
+            </div>
+          </div>
+
           <CommentsSection productId={productId} />
         </>
       ) : (
