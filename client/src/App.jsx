@@ -17,6 +17,7 @@ import { AuthProvider } from "./contexts/authContext";
 import ProductAddPage from "./pages/product-add/ProductAddPage";
 import ProductEditPage from "./pages/product-edit/ProductEditPage";
 import NotFoundPage from "./pages/not-found/NotFoundPage";
+import CartPage from "./pages/cart/CartPage";
 
 function App() {
   return (
@@ -65,6 +66,14 @@ function App() {
               element={
                 <ProtectedRoute reverse>
                   <RegisterPage />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/cart"
+              element={
+                <ProtectedRoute>
+                  <CartPage />
                 </ProtectedRoute>
               }
             />

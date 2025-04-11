@@ -155,7 +155,7 @@ const ContactPage = () => {
         <APIProvider apiKey={import.meta.env.VITE_API_KEY}>
           <div className="google-map">
             <Map
-              zoom={14}
+              zoom={15}
               center={position}
               mapId={import.meta.env.VITE_MAP_ID}
             ></Map>

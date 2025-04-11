@@ -57,10 +57,10 @@ const Header = () => {
           </NavLink>
         </li>
         <li>
-          <Link to="/">
+          <NavLink to="/cart">
             {" "}
             <ShoppingBagIcon className="icon" />
-          </Link>
+          </NavLink>
         </li>
       </ul>
 
