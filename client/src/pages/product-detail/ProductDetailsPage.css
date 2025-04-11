@@ -7,6 +7,8 @@
   background-color: #f9f9f9;
 
   margin-top: 48px;
+  /* display: flex;
+  gap: 40px; */
 }
 
 .product-details h2 {
@@ -23,6 +25,10 @@
 .right-part {
   width: 50%;
 }
+/* 
+.right-part {
+  margin-left: 32px;
+} */
 
 .product-image {
   width: 400px;
